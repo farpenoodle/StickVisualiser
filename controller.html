@@ -1,0 +1,490 @@
+<html>
+<head>
+
+<style>
+body{
+	color:#fff;
+	font-family: 'calibri';
+}
+
+#instructions {
+	position: absolute;
+	top:0vw;
+	left:0vw;
+	width: 100%;
+	text-align: center;
+	font-size:4vw;
+	display: none;
+}
+
+#input {
+	font-size:6vw;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+#lp {
+	position: absolute;
+	left:3.6vw;
+	top:7.2vw;
+}
+#mp {
+	position: absolute;
+	left:20vw;
+	top:0vw;
+}
+#hp {
+	position: absolute;
+	left:38.1vw;
+	top:0vw;
+}
+#lk {
+	position: absolute;
+	left:0vw;
+	top:26.6vw;
+}
+#mk {
+	position: absolute;
+	left:16.8vw;
+	top:20vw;
+}
+#hk {
+	position: absolute;
+	left:34.9vw;
+	top:20vw;
+}
+
+#buttonContainer {
+	position: absolute;
+	left:22vw;
+	top:0vw;
+}
+
+#stickContainer {
+	position: absolute;
+	left: 0vw;
+    top: 20.1vw;
+    width: 10vw;
+    height: 10vw;
+    transform: translate(-50%,-50%);
+}
+
+#layoutContainer{
+	position: absolute;
+	left:19vw;
+	top:10vw;
+}
+
+#base {
+	position: absolute;
+	background-color: rgba(255,255,255,0);
+    width: 17vw;
+    height: 17vw;
+    border-radius: 50%;
+    transform:translate(-50%,-50%);
+    border: 0.5vw solid #fff;
+    box-shadow: 0 0 1vw 0.2vw rgba(255,255,255,1),inset 0 0 1vw 0.2vw rgba(255,255,255,1);
+}
+
+#ball {
+	position: absolute;
+	background-color: rgba(255,255,255,1);
+    width: 15vw;
+    height: 15vw;
+    border-radius: 50%;
+    transform:translate(-50%,-50%);
+    box-shadow: 0 0 1vw 0.2vw rgba(255,255,255,1);
+}
+
+.base5 {
+	position: absolute;
+	left:50%;
+	top:50%;
+}
+
+.ball5 {
+	position: absolute;
+	left:50%;
+	top:50%;
+}
+
+.base4 {
+	position: absolute;
+	left:40%;
+	top:50%;
+}
+
+.ball4 {
+	position: absolute;
+	left:0%;
+	top:50%;
+}
+
+.base1 {
+	position: absolute;
+	left:40%;
+	top:60%;
+}
+
+.ball1 {
+	position: absolute;
+	left:0%;
+	top:100%;
+}
+
+.base2 {
+	position: absolute;
+	left:50%;
+	top:60%;
+}
+
+.ball2 {
+	position: absolute;
+	left:50%;
+	top:100%;
+}
+
+.base3 {
+	position: absolute;
+	left:60%;
+	top:60%;
+}
+
+.ball3 {
+	position: absolute;
+	left:100%;
+	top:100%;
+}
+
+.base6 {
+	position: absolute;
+	left:60%;
+	top:50%;
+}
+
+.ball6 {
+	position: absolute;
+	left:100%;
+	top:50%;
+}
+
+
+.base9 {
+	position: absolute;
+	left:60%;
+	top:40%;
+}
+
+.ball9 {
+	position: absolute;
+	left:100%;
+	top:0%;
+}
+
+.base8 {
+	position: absolute;
+	left:50%;
+	top:40%;
+}
+
+.ball8 {
+	position: absolute;
+	left:50%;
+	top:0%;
+}
+
+.base7 {
+	position: absolute;
+	left:40%;
+	top:40%;
+}
+
+.ball7 {
+	position: absolute;
+	left:0%;
+	top:0%;
+}
+
+.button {
+	position: absolute;
+	background-color: rgba(255,255,255,0);
+    width: 15vw;
+    height: 15vw;
+    border-radius: 50%;
+    font-size: 3vw;
+    border: 0.5vw solid #fff;
+    box-shadow: 0 0 1vw 0.2vw rgba(255,255,255,1),inset 0 0 1vw 0.2vw rgba(255,255,255,1);
+}
+
+.button .text {
+   margin: 0;
+   position: absolute;
+   top: 50%;                         
+   transform: translate(0, -50%);
+   text-transform: uppercase;
+   text-align: center;
+   font-weight: bold;
+   width: 100%;
+   -webkit-filter: drop-shadow(0 0 1vw rgba(255,255,255,1));
+}
+
+.punch {
+	position: relative;
+	width: 8vw;
+	height: 8vw;
+	margin:auto;
+	background-repeat: no-repeat;
+	background-image: url('data:image/svg+xml;base64,PHN2ZyBpZD0iTGF5ZXJfMSIgZGF0YS1uYW1lPSJMYXllciAxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyOTMuMTEgMjk2LjA0Ij4NCiAgPGRlZnM+DQogICAgPHN0eWxlPg0KICAgICAgLmNscy0xIHsNCiAgICAgICAgZmlsbDogI2ZmZjsNCiAgICAgIH0NCiAgICA8L3N0eWxlPg0KICA8L2RlZnM+DQogIDx0aXRsZT5wdW5jaDwvdGl0bGU+DQogIDxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTE3Mi43OSw3OTljLTgtMS42LTE2LTIuNzYtMjMuODUtNC44Ny01Ny4zMi0xNS40NS05OC4xNi02NC0xMDMuMTctMTIzLjA2LTAuODMtOS43My0xLjg4LTE4LjkxLTcuNjUtMjcuMjMtMi4yOS0zLjMtMy40LTcuNTktNC4zOC0xMS41OS0zLjEyLTEyLjc2LDEuMTMtMjMuNDIsMTIuNTYtMjkuNjcsOS4xOS01LDE1LjgtMTEuOTMsMjEuNjUtMjAuNjUsMjcuNzktNDEuMzYsNjctNjIuNTQsMTE2LjgyLTYzLjc5LDYuNjgtLjE3LDExLTQuMzYsMTUuNjgtNy44OUEzNC43OCwzNC43OCwwLDAsMSwyMjAuMjYsNTAzYzEzLS41OSwyMi4zOSw0LjkyLDI3LjA5LDE3YTUwLjI5LDUwLjI5LDAsMCwwLDE5LjE4LDI0LjJjNjkuNDEsNDguNDgsNzkuNTQsMTQ4LjM0LDIxLjgxLDIwOS45NC0yMy42OCwyNS4yNy01Mi43NCw0MC04Ny4yMyw0NGEyMi4zOCwyMi4zOCwwLDAsMC0zLjMyLjg5aC0yNVptLTUzLjE3LTQ5LjUxYzMuNDEsNy42OSw3Ljg3LDEyLjc0LDEzLjcsMTYuNTIsOSw1Ljg2LDE4LjExLDcsMjcuMzcuMTZBNTgsNTgsMCwwLDEsMTcxLjQ2LDc2MGM4LjE3LTMuNjQsMTYuNTktMSwyMS4yMSw2LjY2LDQsNi42OSw3LjkzLDEzLjQ5LDExLjUsMjAuNDQsMS43NCwzLjQsNC4xNCw1LjUzLDcuNzQsNS4wOEExMDkuNTcsMTA5LjU3LDAsMCwwLDIyNy4zOSw3ODljMjguNzUtNy45Myw1MS40NS0yNC4zNiw2OC4zOS00OC44OSwyLTIuODcsMi4yMi01LjMyLjQyLTguMTdxLTUuNzItOS4wNy0xMS4zOS0xOC4xOGMtNC43Ni03LjY2LTMuNC0xNS4yMSwzLjktMjAuNTYsMy4wOC0yLjI2LDYuNDMtNC4xNSw5LjctNi4xNCw0LjItMi41Niw2LjMtNi4xMSw2LjA2LTExLjE4LTAuNjgtMTMuOC0uNjEtMjcuNjYtMi00MS4zOS0xLTEwLjM3LTMuMzUtMjAuNjctNS44Ny0zMC44MS0xLjU2LTYuMy02LjM0LTguNjMtMTIuNzQtNy4zNkEyNCwyNCwwLDAsMCwyNzcsNTk5cS0yNy4xOSwxNS4zMS01NC4yOSwzMC43OGwtMzMsMTguNzUsMTYuOTQsMjkuMyw1NS40MS0zMCw5LjU1LDEyLjY1Wk03OC43OCw1OTIuMTFjLTExLjU2LDcuMjItMjMsMTMuOS0zNCwyMS4zOC03Ljg3LDUuMzgtOC43OCwxMS4yMS0zLjQxLDE5LjI2cTIyLjcxLDM0LDQ1Ljk0LDY3LjdjNS44MSw4LjQ2LDEyLjA5LDE2LjYsMTguMzcsMjUuMThMMTQ3LjI3LDcwMlpNODkuNyw1ODYuMmw2Ny4xMywxMTAuNDRMMTg5LjQxLDY3OGMtNC45MS05Ljc2LTkuNi0xOC45NC0xNC4xLTI4LjIxLTAuNzItMS40OS0xLjM5LTMuOS0uNy01LDEuNzctMi44MS4zNi00LjY3LS45Mi02Ljc5cS0yMS4xLTM1LjA5LTQyLjIxLTcwLjE3Yy0wLjgyLTEuMzYtMS43OS0yLjYzLTIuNzQtNFptNDkuMDktMjcuNDcsNDUuNjcsNzUuODVMMjI2LDYxMi4xNiwxODIuNDMsNTMzWm0xMjkuMjgsMzAuMzljLTAuNi0xLjYxLTEtMi43LTEuNDItMy43NXEtMTQtMzEuNjktMjguMTItNjMuMzZjLTMuMzItNy40Ni05LjA3LTEwLjQ5LTE3LjMxLTkuMzctMTAuODMsMS40Ni0xOS4zMiw3LjQ3LTI4LDE0bDQzLjYzLDgwLjRaIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMzIuNzUgLTUwMy4wMSkiLz4NCjwvc3ZnPg0K');
+}
+
+.kick {
+	position: relative;
+	width: 8vw;
+	height: 8vw;
+	margin:auto;
+	background-repeat: no-repeat;
+	background-image: url('data:image/svg+xml;base64,PHN2ZyBpZD0iTGF5ZXJfMSIgZGF0YS1uYW1lPSJMYXllciAxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyOTYuOTkgMjk5LjYyIj48dGl0bGU+a2ljazwvdGl0bGU+PHBhdGggZD0iTTI1Myw1NjNjLTMuMjUtNi44OS02LjQxLTEzLjg0LTkuODUtMjAuNjRhOC4yNSw4LjI1LDAsMCwwLTMuNy0zYy00Ni40MS0yMy4xNS03My44OS02MC4yNy04Mi0xMTEuNDktMi42OS0xNi45NC0xLjQ3LTMzLjg1LDEuODEtNTAuNjdhMjYuNTYsMjYuNTYsMCwwLDAtLjM0LTkuNjhjLTMuMS0xNi42Ni02LjQ2LTMzLjI3LTkuNi00OS45MWE1LjgzLDUuODMsMCwwLDEsLjgtNC4xMmMxMi41Ni0xNi44MiwyOS40My0yMS42OCw0OS4wOS0xNCwzLDEuMTcsNC44NCwxLjEzLDcuNDMtMS4wNyw4My41Mi03MC42NCwyMTAuMTItMjkuMTMsMjM1LjY5LDc3LjIsMTkuNCw4MC42OC0zNi4xLDE2My4xOS0xMTgsMTc1LjUzYTE1OS43NiwxNTkuNzYsMCwwLDEtNDYuNzYuMTEsMTMuNzQsMTMuNzQsMCwwLDAtOC4xMiwyYy01LDIuOTItOS42Nyw2LjQ4LTE0LjQ2LDkuNzhoLTJaTTQwMy43OCwzMTUuMjZjLTEuNSwxLjIzLTIuNjgsMi4xNC0zLjgsMy4xMi0yNSwyMS43OS00OS44OSw0My42NS03NSw2NS4yNy0yLjU3LDIuMjEtNi41OCw0LjQ2LTkuNjMsNC4xMi0xNS44NS0xLjc5LTMxLjgxLTMuNTEtNDcuMzUtNi45NC0yNC40NC01LjQtNDIuMTctMTkuNzMtNTEuNzctNDMuMzYtMS44MS00LjQ3LTMuOTEtOC44My02LTEzLjE2QzIwNS4xMSwzMTMuODEsMTk2LjEzLDMwOS4xMSwxODUsMzA4Yy01LjEyLS41LTcuMTksMS40OS03LDYuNjNBODQuODIsODQuODIsMCwwLDAsMTc5LjU4LDMyOWM0Ljk0LDIzLjYyLDE0Ljc0LDQ1LjQ2LDI0LjQzLDY3LjQxLDUuNDksMTIuNDMsMTMuNzEsMjEuNjIsMjYuMTYsMjYuNjgsMTEuMDksNC41LDE5LDEyLjM2LDI0LjU5LDIyLjQ2LDkuMDYsMTYuNDQsMTcuNDIsMzMuMjYsMjYuMTYsNDkuODgsMy41MSw2LjY4LDcuMjQsMTMuMjYsMTEsMjAuMDYsMi4wNy0xLjQsMy4zNC0yLjE5LDQuNTMtMy4wOSw0OC42NS0zNi44Miw5NS4xOC03Ni4xOCwxNDAuODUtMTE2LjZhNy4zNyw3LjM3LDAsMCwwLDEuOTEtNS41OCwxNTQuNTcsMTU0LjU3LDAsMCwwLTMuMjUtMTkuNjdDNDMwLjU4LDM0OS4yNyw0MjAuNjcsMzMwLjU1LDQwMy43OCwzMTUuMjZaTTI1Ny42Niw1NDcuNGM3LjA1LTUuNjUsMTMuNzItMTEuMTYsMjAuNTktMTYuNDEsMi40LTEuODQsMi44Mi0zLjM5LDEuNTgtNi4yMS04LjM0LTE5LTE2LjQzLTM4LjItMjQuNzEtNTcuMjctNi40OS0xNC45NC0xNS40Ny0yNy42Ny0zMS42Mi0zMy40Ny03LjQ2LTIuNjgtMTIuMjUtNy45NC0xNi40Ny0xNC40Ni0yMC4yOC0zMS4zLTMxLjY0LTY1LjgyLTM3Ljc0LTEwMi4zLTAuNDMtMi42LS44My01Ljc5LTQtNC44Mi0yLjE4LjY2LTQuMzksMy4zMy01LjI1LDUuNjEtMC44LDIuMTEsMCw0LjkyLjQxLDcuMzgsNS40OCwzNy44MSwyMC4zMyw3Mi4yMiwzOC43MSwxMDUuMjhhMjEuMTQsMjEuMTQsMCwwLDAsNi45Miw3YzguNTEsNS41MiwxNy40MiwxMC40MiwyNS45MSwxNiw5LjksNi40NywxMi44OSwxOC40NCw3LjI5LDI4Ljk0LTIuMTYsNC01LjIzLDcuNjEtOCwxMS41MVoiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0xNDkuMjMgLTI2My4zOCkiIHN0eWxlPSJmaWxsOiNmZmYiLz48L3N2Zz4=');
+}
+
+.buttonlabel {
+	position: absolute;
+	bottom:-2.5vw;
+	right:2.5vw;
+	width:4vw;
+	text-align: center;
+}
+
+.pressed {
+	background-color: rgba(255,255,255,0.6);
+}
+
+</style>
+
+<script>
+
+var mappingName = 'stickmapping'
+
+var controllers = {};
+
+var mapping = {};
+
+var setMapping = true;
+
+var inputArray = ['up','left','down','right','lp','mp','hp','lk','mk','hk'];
+
+var currInput = 0;
+
+window.onload=function(){
+	if(typeof(Storage) !== "undefined") {
+	var LS = localStorage.getItem(mappingName);
+    if (LS != null) {
+    	mapping = JSON.parse(LS);
+    	setMapping = false;
+    }
+}};
+
+
+
+function runAnimation()
+{
+
+    controllers = navigator.getGamepads();
+	if(setMapping == true) {
+		document.getElementById('instructions').style.display = 'block';
+		document.getElementById('input').innerHTML = inputArray[currInput];
+	    for (var i = 0; i < controllers.length; ++i)
+	    {
+	    	if (controllers[i] != null) {
+		        var controller = controllers[i];
+		        
+		        for (var i2 = 0; i2 < controller.buttons.length; i2++) {
+		        	var pressed = controller.buttons[i2].pressed;
+		        	var value = controller.buttons[i2].value
+		        	if (pressed == true && value > 0.5) {
+		        		var input = {
+		        			controller : i,
+		        			type: "button",
+		        			button: i2
+		        		}
+
+		        		if (!isMapped(input)) {
+		        			addMapping(input,inputArray[currInput]);
+		        			currInput++;
+		        			if (currInput >= inputArray.length) {
+		        				saveMapping();
+		        			}
+		        		}
+		        	}
+		        }
+		        //MCZ TE Pro seems to report weird stuff for the dpad input so ignore axes above 5;
+		        for (var i2 = 0; i2 < controller.axes.length && i2 <= 5; i2++) {
+		        	var dir = 1;
+		        	var value = controller.axes[i2];
+		        	if (value < 0) {
+		        		value = value * -1;
+		        		dir = -1;
+		        	}
+
+		        	if (value > 0.5 && value <= 1) {
+		        		console.log(i2);
+		        		var input = {
+		        			controller: i,
+		        			type: 'axis',
+		        			axis: i2,
+		        			direction: dir
+		        		}
+
+		        		if(!isMapped(input)) {
+		        			addMapping(input,inputArray[currInput]);
+		        			currInput++;
+		        			if (currInput >= inputArray.length) {
+		        				saveMapping();
+		        			}
+		        		}
+		        	}
+		        }
+	    	}
+
+
+	    }
+	} else if (controllers != null) {
+		var stick = [];
+		for (var key in mapping) {
+			var activated = false;
+			var mapInput = mapping[key];
+			var controller = controllers[mapInput.controller];
+			
+			if (mapInput.type == "button") {
+				if (controller.buttons[mapInput.button].pressed == true && controller.buttons[mapInput.button].value > 0.5) {
+					activated = true;
+				}
+			} else if (mapInput.type == "axis") {
+				if (mapInput.direction == 1) {
+					if (controller.axes[mapInput.axis] > 0.5) {
+						activated = true;
+					}
+				} else {
+					if (controller.axes[mapInput.axis] < -0.5) {
+						activated = true;
+					}
+				}
+			}
+			if (key != 'up' && key != 'left' && key != 'down' && key != 'right') {
+				if (activated) {
+					document.getElementById(key).classList.add('pressed');
+				} else {
+					document.getElementById(key).classList.remove('pressed');
+				}	
+			} else {
+				stick[key] = activated;
+			}
+		}
+
+		if (!stick['up'] && !stick['left'] && !stick['down'] && !stick['right']) {
+			document.getElementById('base').className = 'base5';
+			document.getElementById('ball').className = 'ball5';
+		} else if (!stick['up'] && stick['left'] && stick['down'] && !stick['right']) {
+			document.getElementById('base').className = 'base1';
+			document.getElementById('ball').className = 'ball1';
+		} else if (!stick['up'] && !stick['left'] && stick['down'] && !stick['right']) {
+			document.getElementById('base').className = 'base2';
+			document.getElementById('ball').className = 'ball2';
+		} else if (!stick['up'] && !stick['left'] && stick['down'] && stick['right']) {
+			document.getElementById('base').className = 'base3';
+			document.getElementById('ball').className = 'ball3';
+		} else if (!stick['up'] && !stick['left'] && !stick['down'] && stick['right']) {
+			document.getElementById('base').className = 'base6';
+			document.getElementById('ball').className = 'ball6';
+		} else if (stick['up'] && !stick['left'] && !stick['down'] && stick['right']) {
+			document.getElementById('base').className = 'base9';
+			document.getElementById('ball').className = 'ball9';
+		} else if (stick['up'] && !stick['left'] && !stick['down'] && !stick['right']) {
+			document.getElementById('base').className = 'base8';
+			document.getElementById('ball').className = 'ball8';
+		} else if (stick['up'] && stick['left'] && !stick['down'] && !stick['right']) {
+			document.getElementById('base').className = 'base7';
+			document.getElementById('ball').className = 'ball7';
+		} else if (!stick['up'] && stick['left'] && !stick['down'] && !stick['right']) {
+			document.getElementById('base').className = 'base4';
+			document.getElementById('ball').className = 'ball4';
+		}
+
+
+	}
+    window.requestAnimationFrame(runAnimation);
+}
+
+window.addEventListener("gamepadconnected", function(e) {
+	
+	//Give it a bit so it doesn't immediately assign a button
+	setTimeout(function(){window.requestAnimationFrame(runAnimation)},500);
+});
+
+
+window.addEventListener("dblclick", function() {
+	mapping = {};
+	localStorage.removeItem(mappingName);
+	//start mapping process
+	setMapping = true;
+	currInput = 0;
+	
+	console.log("dubs");
+});
+
+function saveMapping() {
+	localStorage.setItem(mappingName,JSON.stringify(mapping));
+	setMapping = false;
+	currInput = 0;
+	document.getElementById('instructions').style.display = 'none';
+
+}
+
+function isMapped(input) {
+	var mapped = false;
+	for (var key in mapping) {
+		var mapInput = mapping[key];
+		if (mapInput.type == input.type) {
+			if (mapInput.type == "button") {
+				if (mapInput.controller == input.controller && mapInput.button == input.button) {
+					mapped = true;
+				}
+			} else if (mapInput.type == "axis") {
+				if (mapInput.controller == input.controller && mapInput.axis == input.axis && mapInput.direction == input.direction) {
+					mapped = true;
+				}
+			}
+		}
+	}
+	return mapped;
+}
+
+function addMapping(input,map) {
+	mapping[map] = input;
+	if (input.type == "button") {
+		console.log("added " + input.controller +":"+input.button+" to " + map); 
+	} else if (input.type == "axis") {
+		console.log("added " + input.controller+":"+input.axis+":"+input.direction+" to "+map);
+	}
+}
+
+</script>
+</head>
+<body>
+	<div id="instructions">Please input the input on your stick for:<br /><span id="input">LP</span></div>
+	<div id="layoutContainer">
+
+		<div id="stickContainer">
+			<div id="base" class="base5"></div>
+			<div id="ball" class="ball5"></div>
+		</div>
+		<div id="buttonContainer">
+			<div id="lp" class="button"><div class="text"><div class="punch"></div><div class="buttonlabel">L</div></div></div>
+			<div id="mp" class="button"><div class="text"><div class="punch"></div><div class="buttonlabel">M</div></div></div>
+			<div id="hp" class="button"><div class="text"><div class="punch"></div><div class="buttonlabel">H</div></div></div>
+			<div id="lk" class="button"><div class="text"><div class="kick"></div><div class="buttonlabel">L</div></div></div>
+			<div id="mk" class="button"><div class="text"><div class="kick"></div><div class="buttonlabel">M</div></div></div>
+			<div id="hk" class="button"><div class="text"><div class="kick"></div><div class="buttonlabel">H</div></div></div>
+		</div>
+	</div>
+</body>
+</html>
