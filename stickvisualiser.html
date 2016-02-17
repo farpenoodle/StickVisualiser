@@ -7,6 +7,16 @@ body{
 	font-family: 'calibri';
 }
 
+#initial {
+	position: absolute;
+	top:0vw;
+	left:0vw;
+	width: 100%;
+	text-align: center;
+	font-size:4vw;
+	display: none;
+}
+
 #instructions {
 	position: absolute;
 	top:0vw;
@@ -280,6 +290,8 @@ window.onload=function(){
     if (LS != null) {
     	mapping = JSON.parse(LS);
     	setMapping = false;
+    } else {
+    	document.getElementById('initial').style.display = 'block';
     }
 }};
 
@@ -290,6 +302,7 @@ function runAnimation()
 
     controllers = navigator.getGamepads();
 	if(setMapping == true) {
+    	document.getElementById('initial').style.display = 'none';
 		document.getElementById('instructions').style.display = 'block';
 		document.getElementById('input').innerHTML = inputArray[currInput];
 	    for (var i = 0; i < controllers.length; ++i)
@@ -470,6 +483,7 @@ function addMapping(input,map) {
 </script>
 </head>
 <body>
+	<div id="initial">Push a button on your stick.<br /><span style="font-size:3vw">Double click to clear mapping</span></div>
 	<div id="instructions">Please input the input on your stick for:<br /><span id="input">LP</span></div>
 	<div id="layoutContainer">
 
