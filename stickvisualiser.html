@@ -285,6 +285,11 @@ var inputArray = ['up','left','down','right','lp','mp','hp','lk','mk','hk'];
 var currInput = 0;
 
 window.onload=function(){
+	//detect if xsplit
+	if (window.navigator.userAgent.indexOf('XSplit') != -1) {
+		window.external.SetLocalPropertyAsync("prop:Browser60fps","1");
+	}
+
 	if(typeof(Storage) !== "undefined") {
 	var LS = localStorage.getItem(mappingName);
     if (LS != null) {
